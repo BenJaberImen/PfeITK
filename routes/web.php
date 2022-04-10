@@ -1,4 +1,7 @@
 <?php
+
+use App\Http\Controllers\Api\CategoryApiController;
+use App\Http\Controllers\Api\ProductApiController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -36,3 +39,10 @@ Route::resource('supplements', App\Http\Controllers\SupplementController::class)
     Route::delete('/deletecover/{id}',[App\Http\Controllers\ArticleController::class,'deletecover']);
 
    //Route::get('articles/images/{id}',[App\Http\Controllers\ArticleController::class,'images'])->name('article.images');
+
+
+//********************api routing******************/   
+Route::get('/api/categories',[CategoryApiController::class,'index'])->name('api-catgories');
+Route::get('/api/products/{id}',[ProductApiController::class,'index'])->name('api-get-products-by-category');
+
+//********************end api routing******************/   
